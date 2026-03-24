@@ -1,5 +1,3 @@
-package java_GUI;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -72,7 +70,7 @@ public class Traductor_em extends JFrame {
 		contentPane.add(textTraducir);
 		textTraducir.setColumns(10);
 		
-		JButton btntraducir = new JButton("Traducir Esañol");
+		JButton btntraducir = new JButton("Traducir Español");
 		btntraducir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean encontrado = false;
@@ -92,6 +90,50 @@ public class Traductor_em extends JFrame {
 		btntraducir.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btntraducir.setBounds(229, 145, 159, 34);
 		contentPane.add(btntraducir);
+		
+		JButton btnTraducirIngls = new JButton("Traducir Inglés");
+		btnTraducirIngls.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean encontrado = false;
+				for(int i=1;i<6;i++) {
+					if (textTraducir.getText().equalsIgnoreCase(palabras[i][1])) {
+						encontrado = true;
+						textTraducir.setText("");
+						JOptionPane.showMessageDialog(null, "La traduccion es: \n Español: "+palabras[i][0]+"\n Portugues: "+palabras[i][2]);
+					}
+				}//FOR
+				if (encontrado == false){
+					textTraducir.setText("");
+					JOptionPane.showMessageDialog(null, "Palabra no encontrada");
+					}
+				
+			}
+		});
+		btnTraducirIngls.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnTraducirIngls.setBounds(229, 190, 159, 34);
+		contentPane.add(btnTraducirIngls);
+		
+		JButton btnTraducirPortugs = new JButton("Traducir Portugés");
+		btnTraducirPortugs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean encontrado = false;
+				for(int i=1;i<6;i++) {
+					if (textTraducir.getText().equalsIgnoreCase(palabras[i][2])) {
+						encontrado = true;
+						textTraducir.setText("");
+						JOptionPane.showMessageDialog(null, "La traduccion es: \n Español: "+palabras[i][0]+"\n Inglés: "+palabras[i][1]);
+					}
+				}//FOR
+				if (encontrado == false){
+					textTraducir.setText("");
+					JOptionPane.showMessageDialog(null, "Palabra no encontrada");
+					}
+				
+			}
+		});
+		btnTraducirPortugs.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnTraducirPortugs.setBounds(229, 235, 159, 34);
+		contentPane.add(btnTraducirPortugs);
 
 	}
 }
